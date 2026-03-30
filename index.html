@@ -857,16 +857,16 @@
         <p class="page-description"><span data-i18n="page_description_prefix">直接读取本地 <code>.codex</code> 会话。左侧筛选和选会话，右侧查看完整对话，</span><span style="color:var(--accent);font-weight:600;" data-i18n="page_description_highlight">并生成可交给新账号 Codex 的续聊交接包。</span></p>
       </div>
       <div class="page-header-tools">
-        <select id="languageSelect" class="toolbar-select" aria-label="当前语言">
+        <select id="languageSelect" class="toolbar-select" aria-label="Language">
           <option value="zh">中文</option>
           <option value="en">English</option>
         </select>
-        <select id="themeSelect" class="toolbar-select" aria-label="当前主题">
-          <option value="auto">跟随系统</option>
-          <option value="light">浅色</option>
-          <option value="dark">深色</option>
+        <select id="themeSelect" class="toolbar-select" aria-label="Theme">
+          <option value="auto" data-i18n="theme_auto">跟随系统</option>
+          <option value="light" data-i18n="theme_light">浅色</option>
+          <option value="dark" data-i18n="theme_dark">深色</option>
         </select>
-        <a id="githubLink" class="secondary toolbar-link" href="https://github.com/Hyggetxc/LocalSessionManager" aria-disabled="false" title="GitHub">
+        <a id="githubLink" class="secondary toolbar-link" href="https://github.com/Hyggetxc/LocalSessionManager" target="_blank" rel="noopener noreferrer" aria-disabled="false" title="GitHub">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg>
           <span>GitHub</span>
         </a>
@@ -888,12 +888,12 @@
 
         <div class="status-grid">
           <div class="status-pill">
-            <span class="label">当前目录</span>
-            <span id="rootPath" class="value">未选择</span>
+            <span class="label" data-i18n="current_directory">当前目录</span>
+            <span id="rootPath" class="value" data-empty-state="unselected">未选择</span>
           </div>
           <div class="status-pill">
-            <span class="label">扫描状态</span>
-            <span id="scanStatus" class="value">未扫描</span>
+            <span class="label" data-i18n="scan_status">扫描状态</span>
+            <span id="scanStatus" class="value" data-empty-state="not_scanned">未扫描</span>
           </div>
         </div>
 
@@ -907,28 +907,28 @@
         <div class="filters-grid">
           <div class="wide">
             <span class="label" data-i18n="search_label">搜索标题 / 内容 / ID / 项目</span>
-            <input id="searchInput" type="search" placeholder="例如：回车、xproxy、Codex PJ、019d..." />
+            <input id="searchInput" type="search" data-placeholder-i18n="search_placeholder" placeholder="例如：回车、xproxy、Codex PJ、019d..." />
           </div>
           <div>
             <span class="label" data-i18n="project_label">项目目录</span>
             <select id="projectFilter">
-              <option value="all">全部项目</option>
+              <option value="all" data-i18n="project_all">全部项目</option>
             </select>
           </div>
           <div>
             <span class="label" data-i18n="archive_label">归档状态</span>
             <select id="archiveFilter">
-              <option value="all">全部</option>
-              <option value="live">只看未归档</option>
-              <option value="archived">只看归档</option>
+              <option value="all" data-i18n="archive_all">全部</option>
+              <option value="live" data-i18n="archive_live">只看未归档</option>
+              <option value="archived" data-i18n="archive_archived">只看归档</option>
             </select>
           </div>
           <div>
             <span class="label" data-i18n="sort_label">排序</span>
             <select id="sortFilter">
-              <option value="updated_desc">最近更新</option>
-              <option value="updated_asc">最早更新</option>
-              <option value="title_asc">标题 A-Z</option>
+              <option value="updated_desc" data-i18n="sort_updated_desc">最近更新</option>
+              <option value="updated_asc" data-i18n="sort_updated_asc">最早更新</option>
+              <option value="title_asc" data-i18n="sort_title_asc">标题 A-Z</option>
             </select>
           </div>
         </div>
@@ -939,7 +939,7 @@
         </div>
 
         <div id="sessionList" class="list">
-          <div class="empty">还没有加载任何会话。</div>
+          <div class="empty" data-i18n="empty_no_sessions_loaded">还没有加载任何会话。</div>
         </div>
       </div>
     </section>
@@ -949,7 +949,7 @@
         <div class="detail-header-row">
           <div class="detail-header-main">
             <h2 id="detailTitle" class="panel-title" data-i18n="detail_title">当前会话详情</h2>
-            <p id="detailSubtitle" class="panel-subtitle">选择左侧会话后，这里会显示完整对话、元数据和原始 JSONL 事件。</p>
+            <p id="detailSubtitle" class="panel-subtitle" data-i18n="detail_placeholder">选择左侧会话后，这里会显示完整对话、元数据和原始 JSONL 事件。</p>
           </div>
           <div id="detailHeaderMeta" class="detail-header-chips"></div>
         </div>
@@ -969,7 +969,7 @@
                 <button id="copyHandoffBtn" class="action-emphasis" disabled data-i18n="copy_handoff">复制交接包</button>
                 <button id="downloadHandoffBtn" class="action-emphasis" disabled data-i18n="download_handoff">下载交接包 .txt</button>
                 <span id="handoffSize" class="chip" data-size-prefix="交接包大小：">交接包大小：-</span>
-                <select id="messageViewFilter" class="toolbar-select" aria-label="消息视图">
+                <select id="messageViewFilter" class="toolbar-select" aria-label="Message view">
                   <option value="all">查看全部</option>
                   <option value="user">仅看用户内容</option>
                 </select>
@@ -977,23 +977,23 @@
             </div>
             <div class="detail-content-scroll">
               <div id="conversationStream" class="message-stream">
-                <div class="empty">暂无会话内容。</div>
+                <div class="empty" data-i18n="empty_no_conversation">暂无会话内容。</div>
               </div>
             </div>
           </div>
         </div>
 
         <div id="metaTab" class="tab-panel" hidden>
-          <div id="metaBlock" class="mono-block">暂无数据。</div>
+          <div id="metaBlock" class="mono-block" data-i18n="empty_no_data">暂无数据。</div>
         </div>
 
         <div id="rawTab" class="tab-panel" hidden>
-          <div id="rawBlock" class="mono-block">暂无数据。</div>
+          <div id="rawBlock" class="mono-block" data-i18n="empty_no_data">暂无数据。</div>
         </div>
 
         <div id="groupTab" class="tab-panel" hidden>
           <div id="groupList" class="list">
-            <div class="empty">暂无数据。</div>
+            <div class="empty" data-i18n="empty_no_data">暂无数据。</div>
           </div>
         </div>
       </div>
@@ -1088,6 +1088,7 @@
     };
 
     function setStatus(text, isOk = false) {
+      delete els.scanStatus.dataset.emptyState;
       els.scanStatus.textContent = text;
       els.scanStatus.style.color = isOk ? "var(--success)" : "";
     }
@@ -1106,11 +1107,25 @@
         stat_filtered: "筛选结果",
         stat_live: "未归档",
         stat_archived: "已归档",
+        current_directory: "当前目录",
+        scan_status: "扫描状态",
+        unselected: "未选择",
+        not_scanned: "未扫描",
         search_label: "搜索标题 / 内容 / ID / 项目",
+        search_placeholder: "例如：回车、xproxy、Codex PJ、019d...",
         project_label: "项目目录",
+        project_all: "全部项目",
         archive_label: "归档状态",
+        archive_all: "全部",
+        archive_live: "只看未归档",
+        archive_archived: "只看归档",
         sort_label: "排序",
-        footer_note: "提示：如果你只是想把“找不到的历史对话”翻出来，这个工具直接读取本地会话文件，比当前账号左侧列表更可靠。",
+        theme_auto: "跟随系统",
+        theme_light: "浅色",
+        theme_dark: "深色",
+        sort_updated_desc: "最近更新",
+        sort_updated_asc: "最早更新",
+        sort_title_asc: "标题 A-Z",
         session_list_title: "会话列表",
         session_list_subtitle: "优先显示原线程名；拿不到时，再用真实首条用户消息生成标题。",
         detail_title: "当前会话详情",
@@ -1123,12 +1138,42 @@
         handoff_size_prefix: "交接包大小：",
         detail_placeholder: "选择左侧会话后，这里会显示完整对话、元数据和原始 JSONL 事件。",
         view_all: "查看全部",
-        view_user_only: "仅看用户内容"
+        view_user_only: "仅看用户内容",
+        empty_no_sessions_loaded: "还没有加载任何会话。",
+        empty_no_match: "没有匹配到会话。可以尝试切换“归档状态”或放宽搜索条件。",
+        empty_no_conversation: "暂无会话内容。",
+        empty_no_readable_messages: "这条会话没有提取到可读消息，但原始事件仍可在“原始事件”标签查看。",
+        empty_no_data: "暂无数据。",
+        empty_no_same_project: "这个项目目录下没有其他会话。",
+        chip_live: "未归档",
+        chip_archived: "已归档",
+        title_source_meta: "原线程名",
+        title_source_inferred: "推断标题",
+        fallback_preview: "无预览内容",
+        label_user: "用户",
+        label_assistant: "助手",
+        label_event: "事件",
+        status_scanning: "扫描中...",
+        status_scanned_count: "已扫描 {count} 条会话",
+        status_picker_failed: "目录授权失败",
+        status_fallback_loaded: "已通过目录选择降级模式载入",
+        handoff_intro: "下面是一份 Codex 旧会话交接包，请先完整阅读，再基于这份上下文继续与我协作。",
+        handoff_requirements: "要求：",
+        handoff_req_1: "1. 先把这份内容当作已发生过的历史对话。",
+        handoff_req_2: "2. 理解当前项目、上下文、已完成事项和待继续事项。",
+        handoff_req_3: "3. 后续直接在这个上下文上继续，不要让我从头重复背景。",
+        handoff_title: "会话标题：",
+        handoff_project: "项目目录：",
+        handoff_archive: "归档状态：",
+        handoff_updated: "最后更新时间：",
+        handoff_session_id: "原始会话 ID：",
+        handoff_full_conversation: "完整历史对话：",
+        handoff_empty_transcript: "无可提取对话文本"
       },
       en: {
         page_title: "LocalSessionManager",
-        page_description_prefix: "Read local <code>.codex</code> sessions directly. Filter and choose sessions on the left, review the full conversation on the right, ",
-        page_description_highlight: "and generate a handoff package for a new Codex account.",
+        page_description_prefix: "Browse local <code>.codex</code> sessions and review full conversations, ",
+        page_description_highlight: "with handoff packages for new Codex accounts.",
         left_title: "Directory & Filters",
         left_subtitle: "Choose your local <code>.codex</code> directory first, then filter by project, archive state, and keywords.",
         pick_dir: "Choose .codex",
@@ -1138,11 +1183,25 @@
         stat_filtered: "Filtered",
         stat_live: "Live",
         stat_archived: "Archived",
+        current_directory: "Current Directory",
+        scan_status: "Scan Status",
+        unselected: "Not selected",
+        not_scanned: "Not scanned",
         search_label: "Search title / content / ID / project",
+        search_placeholder: "For example: enter, xproxy, Codex PJ, 019d...",
         project_label: "Project",
+        project_all: "All Projects",
         archive_label: "Archive",
+        archive_all: "All",
+        archive_live: "Live Only",
+        archive_archived: "Archived Only",
         sort_label: "Sort",
-        footer_note: "Tip: if Codex history is missing from the sidebar, this tool can still read local session files directly.",
+        theme_auto: "Auto",
+        theme_light: "Light",
+        theme_dark: "Dark",
+        sort_updated_desc: "Recently Updated",
+        sort_updated_asc: "Oldest Updated",
+        sort_title_asc: "Title A-Z",
         session_list_title: "Sessions",
         session_list_subtitle: "Prefer original thread titles; fallback to the first real user message when needed.",
         detail_title: "Current Session Detail",
@@ -1155,12 +1214,54 @@
         handoff_size_prefix: "Handoff Size: ",
         detail_placeholder: "Choose a session on the left to inspect the full conversation, metadata, and raw JSONL events.",
         view_all: "Show All",
-        view_user_only: "User Only"
+        view_user_only: "User Only",
+        empty_no_sessions_loaded: "No sessions loaded yet.",
+        empty_no_match: "No matching sessions. Try changing the archive filter or broadening your search.",
+        empty_no_conversation: "No conversation content yet.",
+        empty_no_readable_messages: "No readable messages were extracted from this session, but raw events are still available in the Raw Events tab.",
+        empty_no_data: "No data available.",
+        empty_no_same_project: "There are no other sessions in this project directory.",
+        chip_live: "Live",
+        chip_archived: "Archived",
+        title_source_meta: "Original title",
+        title_source_inferred: "Inferred title",
+        fallback_preview: "No preview available",
+        label_user: "User",
+        label_assistant: "Assistant",
+        label_event: "Event",
+        status_scanning: "Scanning...",
+        status_scanned_count: "Scanned {count} sessions",
+        status_picker_failed: "Directory access failed",
+        status_fallback_loaded: "Loaded via fallback folder import",
+        handoff_intro: "Below is a Codex session handoff package. Please read it fully first, then continue collaborating with me based on this context.",
+        handoff_requirements: "Requirements:",
+        handoff_req_1: "1. Treat this content as prior conversation history that already happened.",
+        handoff_req_2: "2. Understand the current project, context, completed work, and remaining work.",
+        handoff_req_3: "3. Continue directly from this context without asking me to repeat the background from scratch.",
+        handoff_title: "Session Title: ",
+        handoff_project: "Project Directory: ",
+        handoff_archive: "Archive Status: ",
+        handoff_updated: "Last Updated: ",
+        handoff_session_id: "Original Session ID: ",
+        handoff_full_conversation: "Full Conversation:",
+        handoff_empty_transcript: "No extractable conversation text"
       }
     };
 
     function t(key) {
       return i18n[els.languageSelect.value || "zh"]?.[key] || key;
+    }
+
+    function tr(key, values = {}) {
+      return Object.entries(values).reduce((result, [name, value]) => {
+        return result.replaceAll(`{${name}}`, String(value));
+      }, t(key));
+    }
+
+    function getMessageLabel(msg) {
+      if (msg.kind === "user" || msg.role === "user") return t("label_user");
+      if (msg.kind === "assistant_answer" || msg.kind === "assistant_thought" || msg.role === "assistant") return t("label_assistant");
+      return t("label_event");
     }
 
     function applyLanguage(lang) {
@@ -1170,21 +1271,31 @@
         const value = t(key);
         if (value !== undefined) node.innerHTML = value;
       });
+      document.querySelectorAll("[data-placeholder-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-placeholder-i18n");
+        const value = t(key);
+        if (value !== undefined) node.setAttribute("placeholder", value);
+      });
       if (els.messageViewFilter?.options[0]) els.messageViewFilter.options[0].text = t("view_all");
       if (els.messageViewFilter?.options[1]) els.messageViewFilter.options[1].text = t("view_user_only");
+      if (els.rootPath.dataset.emptyState === "unselected") els.rootPath.textContent = t("unselected");
+      if (els.scanStatus.dataset.emptyState === "not_scanned") els.scanStatus.textContent = t("not_scanned");
       els.handoffSize.setAttribute("data-size-prefix", t("handoff_size_prefix"));
       if (!getSelectedSession()) {
         els.detailSubtitle.textContent = t("detail_placeholder");
       } else {
         els.handoffSize.textContent = `${t("handoff_size_prefix")}${formatBytes(estimateBytes(buildHandoffText(getSelectedSession())))}`;
       }
+      renderSessionList();
+      renderDetail();
     }
 
     function formatTime(ts) {
       if (!ts) return "-";
       const date = typeof ts === "number" ? new Date(ts * 1000) : new Date(ts);
       if (Number.isNaN(date.getTime())) return String(ts);
-      return new Intl.DateTimeFormat("zh-CN", {
+      const locale = (els.languageSelect.value || "zh") === "en" ? "en-US" : "zh-CN";
+      return new Intl.DateTimeFormat(locale, {
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
@@ -1275,22 +1386,22 @@
         if (event.type === "event_msg") {
           const type = event.payload?.type;
           if (type === "user_message") {
-            messages.push({ role: "user", kind: "user", label: "用户", timestamp: event.timestamp, content: event.payload.message || "" });
+            messages.push({ role: "user", kind: "user", label: t("label_user"), timestamp: event.timestamp, content: event.payload.message || "" });
           } else if (type === "agent_message") {
-            messages.push({ role: "assistant", kind: "assistant_answer", label: "助手", timestamp: event.timestamp, content: event.payload.message || "" });
+            messages.push({ role: "assistant", kind: "assistant_answer", label: t("label_assistant"), timestamp: event.timestamp, content: event.payload.message || "" });
           } else if (type !== "token_count") {
             const text = getEventMessageText(event);
-            if (text) messages.push({ role: "system", kind: "system", label: type || "事件", timestamp: event.timestamp, content: text });
+            if (text) messages.push({ role: "system", kind: "system", label: type || t("label_event"), timestamp: event.timestamp, content: text });
           }
         } else if (event.type === "response_item" && event.payload?.type === "message") {
           const role = event.payload.role || "assistant";
           const content = extractText(event.payload.content);
-          if (content) messages.push({ role, kind: role === "user" ? "user" : "assistant_answer", label: role === "user" ? "用户" : "助手", timestamp: event.timestamp, content });
+          if (content) messages.push({ role, kind: role === "user" ? "user" : "assistant_answer", label: role === "user" ? t("label_user") : t("label_assistant"), timestamp: event.timestamp, content });
         } else if (event.type === "response_item" && event.payload?.type === "reasoning") {
           messages.push({
             role: "assistant",
             kind: "assistant_thought",
-            label: "助手思考",
+            label: t("label_assistant"),
             timestamp: event.timestamp,
             content: "该条记录包含助手的推理内容，出于存储格式限制，这里通常只有占位信息或加密内容。"
           });
@@ -1326,7 +1437,7 @@
     async function scanWithDirectoryHandle(rootHandle) {
       state.rootHandle = rootHandle;
       state.rootName = rootHandle.name || ".codex";
-      setStatus("扫描中...");
+      setStatus(t("status_scanning"));
       els.rootPath.textContent = rootHandle.name || ".codex";
 
       const sessions = [];
@@ -1356,8 +1467,9 @@
     async function scanFromFileList(fileList) {
       state.rootHandle = null;
       state.rootName = ".codex";
-      els.rootPath.textContent = "已通过目录选择降级模式载入";
-      setStatus("扫描中...");
+      delete els.rootPath.dataset.emptyState;
+      els.rootPath.textContent = t("status_fallback_loaded");
+      setStatus(t("status_scanning"));
 
       const sessions = [];
       for (const file of fileList) {
@@ -1426,14 +1538,14 @@
       populateProjectFilter();
       updateStats();
       applyFilters();
-      setStatus(`已扫描 ${state.sessions.length} 条会话`, true);
+      setStatus(tr("status_scanned_count", { count: state.sessions.length }), true);
       els.rescanBtn.disabled = false;
     }
 
     function populateProjectFilter() {
       const current = els.projectFilter.value;
       const projects = [...new Set(state.sessions.map((item) => item.cwd).filter(Boolean))].sort();
-      els.projectFilter.innerHTML = `<option value="all">全部项目</option>`;
+      els.projectFilter.innerHTML = `<option value="all">${t("project_all")}</option>`;
       for (const project of projects) {
         const option = document.createElement("option");
         option.value = project;
@@ -1477,7 +1589,7 @@
 
     function renderSessionList() {
       if (!state.filteredSessions.length) {
-        els.sessionList.innerHTML = `<div class="empty">没有匹配到会话。可以尝试切换“归档状态”或放宽搜索条件。</div>`;
+        els.sessionList.innerHTML = `<div class="empty">${t("empty_no_match")}</div>`;
         return;
       }
 
@@ -1489,13 +1601,13 @@
           <div class="session-card-head">
             <div class="session-head-main">
               <h3 class="session-title">${escapeHtml(session.title)}</h3>
-              <div class="session-subtitle">${escapeHtml(session.firstUserMessage || session.metaTitle || "无预览内容")}</div>
+              <div class="session-subtitle">${escapeHtml(session.firstUserMessage || session.metaTitle || t("fallback_preview"))}</div>
             </div>
           </div>
           <div class="session-meta">
-            <span class="chip ${session.archived ? "archived" : "live"}">${session.archived ? "已归档" : "未归档"}</span>
+            <span class="chip ${session.archived ? "archived" : "live"}">${session.archived ? t("chip_archived") : t("chip_live")}</span>
             <span class="chip">${escapeHtml(shortPath(session.cwd))}</span>
-            <span class="chip">${session.titleSource === "meta" ? "原线程名" : "推断标题"}</span>
+            <span class="chip">${session.titleSource === "meta" ? t("title_source_meta") : t("title_source_inferred")}</span>
             <span class="chip session-time">${escapeHtml(formatTime(session.updatedAt))}</span>
           </div>
         `;
@@ -1520,46 +1632,46 @@
     }
 
     function buildHandoffText(session) {
-      const transcript = session.messages.map((msg) => `[${msg.label}] ${formatTime(msg.timestamp)}\n${msg.content || ""}`).join("\n\n");
+      const transcript = session.messages.map((msg) => `[${getMessageLabel(msg)}] ${formatTime(msg.timestamp)}\n${msg.content || ""}`).join("\n\n");
       return [
-        "下面是一份 Codex 旧会话交接包，请先完整阅读，再基于这份上下文继续与我协作。",
+        t("handoff_intro"),
         "",
-        "要求：",
-        "1. 先把这份内容当作已发生过的历史对话。",
-        "2. 理解当前项目、上下文、已完成事项和待继续事项。",
-        "3. 后续直接在这个上下文上继续，不要让我从头重复背景。",
+        t("handoff_requirements"),
+        t("handoff_req_1"),
+        t("handoff_req_2"),
+        t("handoff_req_3"),
         "",
-        `会话标题：${session.title}`,
-        `项目目录：${session.cwd}`,
-        `归档状态：${session.archived ? "已归档" : "未归档"}`,
-        `最后更新时间：${formatTime(session.updatedAt)}`,
-        `原始会话 ID：${session.id}`,
+        `${t("handoff_title")}${session.title}`,
+        `${t("handoff_project")}${session.cwd}`,
+        `${t("handoff_archive")}${session.archived ? t("chip_archived") : t("chip_live")}`,
+        `${t("handoff_updated")}${formatTime(session.updatedAt)}`,
+        `${t("handoff_session_id")}${session.id}`,
         "",
-        "完整历史对话：",
-        transcript || "无可提取对话文本"
+        t("handoff_full_conversation"),
+        transcript || t("handoff_empty_transcript")
       ].join("\n");
     }
 
     function renderDetail() {
       const session = state.sessions.find((item) => item.id === state.selectedId);
       if (!session) {
-        els.detailTitle.textContent = "当前会话详情";
+        els.detailTitle.textContent = t("detail_title");
         els.detailSubtitle.textContent = t("detail_placeholder");
         els.detailHeaderMeta.innerHTML = "";
-        els.conversationStream.innerHTML = `<div class="empty">暂无会话内容。</div>`;
-        els.metaBlock.textContent = "暂无数据。";
-        els.rawBlock.textContent = "暂无数据。";
-        els.groupList.innerHTML = `<div class="empty">暂无数据。</div>`;
+        els.conversationStream.innerHTML = `<div class="empty">${t("empty_no_conversation")}</div>`;
+        els.metaBlock.textContent = t("empty_no_data");
+        els.rawBlock.textContent = t("empty_no_data");
+        els.groupList.innerHTML = `<div class="empty">${t("empty_no_data")}</div>`;
         els.copyHandoffBtn.disabled = true;
         els.downloadHandoffBtn.disabled = true;
         els.handoffSize.textContent = `${t("handoff_size_prefix")}-`;
         return;
       }
 
-      els.detailTitle.textContent = "当前会话详情";
+      els.detailTitle.textContent = t("detail_title");
       els.detailSubtitle.textContent = session.filePath;
       els.detailHeaderMeta.innerHTML = `
-        <span class="chip ${session.archived ? "archived" : "live"}">${session.archived ? "已归档" : "未归档"}</span>
+        <span class="chip ${session.archived ? "archived" : "live"}">${session.archived ? t("chip_archived") : t("chip_live")}</span>
         <span class="chip">${escapeHtml(shortPath(session.cwd))}</span>
         <span class="chip">${escapeHtml(session.modelProvider)}</span>
         <span class="chip">${escapeHtml(session.source)}</span>
@@ -1586,7 +1698,7 @@
       });
 
       if (!visibleMessages.length) {
-        els.conversationStream.innerHTML = `<div class="empty">这条会话没有提取到可读消息，但原始事件仍可在“原始事件”标签查看。</div>`;
+        els.conversationStream.innerHTML = `<div class="empty">${t("empty_no_readable_messages")}</div>`;
         return;
       }
 
@@ -1605,7 +1717,7 @@
         {
           article.innerHTML = `
             <div class="message-header">
-              <span class="message-role">${escapeHtml(msg.label || msg.role || "消息")}</span>
+              <span class="message-role">${escapeHtml(getMessageLabel(msg))}</span>
               <span>${escapeHtml(formatTime(msg.timestamp))}</span>
             </div>
             <div class="message-content">${escapeHtml(msg.content || "")}</div>
@@ -1636,14 +1748,14 @@
 
     function renderRaw(session) {
       const compactEvents = session.events.map((event) => JSON.stringify(event, null, 2)).join("\n\n");
-      els.rawBlock.textContent = compactEvents || "暂无数据。";
+      els.rawBlock.textContent = compactEvents || t("empty_no_data");
     }
 
     function renderGroup(session) {
       const groupItems = state.sessions.filter((item) => item.cwd === session.cwd && item.id !== session.id).sort((a, b) => b.updatedTs - a.updatedTs).slice(0, 30);
 
       if (!groupItems.length) {
-        els.groupList.innerHTML = `<div class="empty">这个项目目录下没有其他会话。</div>`;
+        els.groupList.innerHTML = `<div class="empty">${t("empty_no_same_project")}</div>`;
         return;
       }
 
@@ -1654,7 +1766,7 @@
         card.innerHTML = `
           <h3 class="session-title">${escapeHtml(item.title)}</h3>
           <div class="session-meta">
-            <span class="chip ${item.archived ? "archived" : "live"}">${item.archived ? "已归档" : "未归档"}</span>
+            <span class="chip ${item.archived ? "archived" : "live"}">${item.archived ? t("chip_archived") : t("chip_live")}</span>
             <span class="chip">${escapeHtml(formatTime(item.updatedAt))}</span>
           </div>
         `;
@@ -1744,7 +1856,7 @@
         await scanWithDirectoryHandle(handle);
       } catch (error) {
         if (error?.name !== "AbortError") {
-          setStatus("目录授权失败");
+          setStatus(t("status_picker_failed"));
           console.error(error);
         }
       }
@@ -1804,12 +1916,6 @@
 
     els.themeSelect.addEventListener("change", () => {
       applyTheme(els.themeSelect.value);
-    });
-
-    els.githubLink.addEventListener("click", (event) => {
-      if (els.githubLink.getAttribute("href") === "#") {
-        event.preventDefault();
-      }
     });
 
     els.messageViewFilter.addEventListener("change", () => {

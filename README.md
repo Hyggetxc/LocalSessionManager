@@ -1,33 +1,79 @@
 # LocalSessionManager
 
-这是一个单文件本地工具，用来查看 `~/.codex` 里的会话内容，不依赖当前账号左侧历史是否展示。
+[![GitHub Stars](https://img.shields.io/github/stars/Hyggetxc/LocalSessionManager?style=flat-square)](https://github.com/Hyggetxc/LocalSessionManager/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Hyggetxc/LocalSessionManager?style=flat-square)](https://github.com/Hyggetxc/LocalSessionManager/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/Hyggetxc/LocalSessionManager?style=flat-square)](https://github.com/Hyggetxc/LocalSessionManager/issues)
+[![GitHub Pages](https://img.shields.io/badge/demo-online-2f81f7?style=flat-square)](https://hyggetxc.github.io/LocalSessionManager/)
 
-在线预览：
-`https://hyggetxc.github.io/LocalSessionManager/`
+LocalSessionManager is a lightweight local viewer for Codex session files stored in `~/.codex`.
 
-仓库地址：
-`https://github.com/Hyggetxc/LocalSessionManager`
+It is especially useful when:
 
-## 用法
+- you use multiple Codex accounts
+- some local conversations still exist on disk but do not appear completely in the current Codex sidebar
+- you need to inspect the full local conversation history
+- you want to generate a handoff package and continue the work in another Codex account without re-explaining everything
 
-1. 用 Chromium 浏览器打开 [`index.html`](/Users/lemon/Documents/project/Codex%20PJ/LocalSessionManager/index.html)
-2. 点“选择 `.codex` 目录”
-3. 选择你的本地 `~/.codex`
-4. 左侧筛选会话，右侧直接查看完整对话
+## Translations
 
-## 当前支持
+- [English](./README.md)
+- [简体中文](./README.zh-CN.md)
 
-- 扫描 `sessions` 和 `archived_sessions`
-- 按项目、标题、内容、ID 搜索
-- 按归档状态筛选
-- 查看完整对话内容
-- 查看会话元数据
-- 查看原始 JSONL 事件
-- 查看同项目下的其他会话
-- 生成可复制或下载的交接包，方便切换账号后继续上下文
+## Demo
 
-## 说明
+- Online: [https://hyggetxc.github.io/LocalSessionManager/](https://hyggetxc.github.io/LocalSessionManager/)
+- Repository: [https://github.com/Hyggetxc/LocalSessionManager](https://github.com/Hyggetxc/LocalSessionManager)
 
-- 数据只在浏览器本地处理
-- 这个工具解决的是“本地会话还在，但 Codex 客户端左侧不展示”的问题
-- 它不会把会话重新导入当前账号左侧历史列表
+## Why This Exists
+
+Codex local session data may still be present in files such as:
+
+- `~/.codex/sessions`
+- `~/.codex/archived_sessions`
+- `~/.codex/session_index.jsonl`
+
+But the current logged-in account may not fully display those conversations in the desktop sidebar.
+
+This tool is a practical fallback for that situation. It reads the local session files directly in the browser, helps you find the missing conversation, and lets you export a handoff package for a new account or a new thread.
+
+## Features
+
+- Scan local `sessions` and `archived_sessions`
+- Search by title, content, session ID, and project directory
+- Filter by archive state and project
+- Read the full conversation in a cleaner web UI
+- Inspect metadata and raw JSONL events
+- Browse related sessions in the same project
+- Copy or download a handoff package for continuing work in another Codex account
+- Light / dark theme and Chinese / English UI
+
+## Usage
+
+1. Open [`index.html`](./index.html) in a Chromium-based browser.
+2. Click `Choose .codex`.
+3. Select your local `~/.codex` directory.
+4. Filter sessions on the left and inspect the full conversation on the right.
+5. Use `Copy Handoff` or `Download .txt` when you want to continue in another Codex account.
+
+## Privacy
+
+- All data is processed locally in your browser.
+- No session content is uploaded by this tool.
+- This tool does not re-import sessions into the current Codex account sidebar.
+
+## Roadmap Ideas
+
+This repository can absolutely grow into a larger project structure, similar to other open-source toolkits.
+
+Possible next additions:
+
+- `docs/` for screenshots, FAQs, and recovery guides
+- `examples/` for sample exported handoff packages
+- `scripts/` for local utilities or release helpers
+- `components/` or `packages/` if the current single-file tool is later split into reusable modules
+
+## Support
+
+If this project helps you recover or continue your Codex conversations, please consider giving it a Star:
+
+- [Star this repository](https://github.com/Hyggetxc/LocalSessionManager)
