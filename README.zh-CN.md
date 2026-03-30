@@ -1,5 +1,7 @@
 # LocalSessionManager
 
+> 一个轻量的本地 Codex 会话查看器，帮你找回、整理和交接本地会话历史。
+
 [![GitHub Stars](https://img.shields.io/github/stars/Hyggetxc/LocalSessionManager?style=flat-square)](https://github.com/Hyggetxc/LocalSessionManager/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Hyggetxc/LocalSessionManager?style=flat-square)](https://github.com/Hyggetxc/LocalSessionManager/network/members)
 [![GitHub Issues](https://img.shields.io/github/issues/Hyggetxc/LocalSessionManager?style=flat-square)](https://github.com/Hyggetxc/LocalSessionManager/issues)
