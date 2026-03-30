@@ -1005,38 +1005,38 @@
       <div class="modal-head">
         <div class="modal-icon">?</div>
         <div>
-          <h3 id="dirGuideTitle">请选择 .codex 目录</h3>
-          <p>继续后会打开系统目录选择器，请选择包含 <code>sessions</code> 目录的 <code>.codex</code> 根目录。下面把三个系统的常见路径和隐藏目录打开方式都写在这里了。</p>
+          <h3 id="dirGuideTitle" data-i18n="modal_title">请选择 .codex 目录</h3>
+          <p data-i18n="modal_intro">继续后会打开系统目录选择器，请选择包含 <code>sessions</code> 目录的 <code>.codex</code> 根目录。下面把三个系统的常见路径和隐藏目录打开方式都写在这里了。</p>
         </div>
       </div>
       <div class="modal-body">
         <div class="hint-card">
-          <strong>常见路径</strong>
-          <div class="fine-print">目录内应包含：<code>sessions/</code>、<code>archived_sessions/</code>、<code>session_index.jsonl</code>、<code>state_5.sqlite</code>。如果看不到 <code>.codex</code>，通常是因为它是隐藏目录。</div>
+          <strong data-i18n="modal_common_paths">常见路径</strong>
+          <div class="fine-print" data-i18n="modal_common_paths_desc">目录内应包含：<code>sessions/</code>、<code>archived_sessions/</code>、<code>session_index.jsonl</code>、<code>state_5.sqlite</code>。如果看不到 <code>.codex</code>，通常是因为它是隐藏目录。</div>
         </div>
         <div class="os-grid">
           <section class="os-card">
             <h4>MACOS</h4>
             <div class="os-path">~/.codex</div>
-            <p>Finder 里按 <code>Shift + Command + .</code> 显示隐藏文件；或者在“前往文件夹”中直接输入 <code>~/.codex</code>。</p>
+            <p data-i18n="modal_macos_desc">Finder 里按 <code>Shift + Command + .</code> 显示隐藏文件；或者在“前往文件夹”中直接输入 <code>~/.codex</code>。</p>
           </section>
           <section class="os-card">
             <h4>WINDOWS</h4>
             <div class="os-path">%USERPROFILE%\\.codex</div>
-            <p>资源管理器地址栏可直接输入上面的路径；如果手动找，请先在“查看”里开启“隐藏的项目”。</p>
+            <p data-i18n="modal_windows_desc">资源管理器地址栏可直接输入上面的路径；如果手动找，请先在“查看”里开启“隐藏的项目”。</p>
           </section>
           <section class="os-card">
             <h4>LINUX</h4>
             <div class="os-path">~/.codex</div>
-            <p>文件管理器里通常按 <code>Ctrl + H</code> 显示隐藏文件；也可以在路径栏直接输入 <code>~/.codex</code>。</p>
+            <p data-i18n="modal_linux_desc">文件管理器里通常按 <code>Ctrl + H</code> 显示隐藏文件；也可以在路径栏直接输入 <code>~/.codex</code>。</p>
           </section>
         </div>
       </div>
       <div class="modal-foot">
-        <div class="fine-print">如果系统目录选择器不方便选隐藏目录，也可以点主页上的“目录选择降级”，直接把整个 <code>.codex</code> 目录拖进去。</div>
+        <div class="fine-print" data-i18n="modal_footer_note">如果系统目录选择器不方便选隐藏目录，也可以点主页上的“目录选择降级”，直接把整个 <code>.codex</code> 目录拖进去。</div>
         <div class="modal-actions">
-          <button id="closeGuideBtn" class="secondary">取消</button>
-          <button id="continuePickBtn" class="primary">继续选择目录</button>
+          <button id="closeGuideBtn" class="secondary" data-i18n="modal_cancel">取消</button>
+          <button id="continuePickBtn" class="primary" data-i18n="modal_continue">继续选择目录</button>
         </div>
       </div>
     </div>
@@ -1137,6 +1137,16 @@
         download_handoff: "下载交接包 .txt",
         handoff_size_prefix: "交接包大小：",
         detail_placeholder: "选择左侧会话后，这里会显示完整对话、元数据和原始 JSONL 事件。",
+        modal_title: "请选择 .codex 目录",
+        modal_intro: "继续后会打开系统目录选择器，请选择包含 <code>sessions</code> 目录的 <code>.codex</code> 根目录。下面把三个系统的常见路径和隐藏目录打开方式都写在这里了。",
+        modal_common_paths: "常见路径",
+        modal_common_paths_desc: "目录内应包含：<code>sessions/</code>、<code>archived_sessions/</code>、<code>session_index.jsonl</code>、<code>state_5.sqlite</code>。如果看不到 <code>.codex</code>，通常是因为它是隐藏目录。",
+        modal_macos_desc: "Finder 里按 <code>Shift + Command + .</code> 显示隐藏文件；或者在“前往文件夹”中直接输入 <code>~/.codex</code>。",
+        modal_windows_desc: "资源管理器地址栏可直接输入上面的路径；如果手动找，请先在“查看”里开启“隐藏的项目”。",
+        modal_linux_desc: "文件管理器里通常按 <code>Ctrl + H</code> 显示隐藏文件；也可以在路径栏直接输入 <code>~/.codex</code>。",
+        modal_footer_note: "如果系统目录选择器不方便选隐藏目录，也可以点主页上的“目录选择降级”，直接把整个 <code>.codex</code> 目录拖进去。",
+        modal_cancel: "取消",
+        modal_continue: "继续选择目录",
         view_all: "查看全部",
         view_user_only: "仅看用户内容",
         empty_no_sessions_loaded: "还没有加载任何会话。",
@@ -1157,6 +1167,7 @@
         status_scanned_count: "已扫描 {count} 条会话",
         status_picker_failed: "目录授权失败",
         status_fallback_loaded: "已通过目录选择降级模式载入",
+        picker_not_supported: "当前浏览器不支持目录授权，请改用 Chromium 浏览器，或使用“目录选择降级”。",
         handoff_intro: "下面是一份 Codex 旧会话交接包，请先完整阅读，再基于这份上下文继续与我协作。",
         handoff_requirements: "要求：",
         handoff_req_1: "1. 先把这份内容当作已发生过的历史对话。",
@@ -1168,7 +1179,11 @@
         handoff_updated: "最后更新时间：",
         handoff_session_id: "原始会话 ID：",
         handoff_full_conversation: "完整历史对话：",
-        handoff_empty_transcript: "无可提取对话文本"
+        handoff_empty_transcript: "无可提取对话文本",
+        copy_failed_manual: "复制失败，请手动复制：",
+        function_call: "[函数调用] ",
+        function_output: "[函数输出]\n",
+        reasoning_placeholder: "该条记录包含助手的推理内容，出于存储格式限制，这里通常只有占位信息或加密内容。"
       },
       en: {
         page_title: "LocalSessionManager",
@@ -1213,6 +1228,16 @@
         download_handoff: "Download .txt",
         handoff_size_prefix: "Handoff Size: ",
         detail_placeholder: "Choose a session on the left to inspect the full conversation, metadata, and raw JSONL events.",
+        modal_title: "Choose the .codex Directory",
+        modal_intro: "The system directory picker will open next. Please choose the root <code>.codex</code> directory that contains the <code>sessions</code> folder. Common paths and how to reveal hidden folders on each system are listed below.",
+        modal_common_paths: "Common Paths",
+        modal_common_paths_desc: "The directory should contain <code>sessions/</code>, <code>archived_sessions/</code>, <code>session_index.jsonl</code>, and <code>state_5.sqlite</code>. If you cannot see <code>.codex</code>, it is usually because it is hidden.",
+        modal_macos_desc: "In Finder, press <code>Shift + Command + .</code> to show hidden files, or use “Go to Folder” and enter <code>~/.codex</code> directly.",
+        modal_windows_desc: "You can paste the path above directly into File Explorer. If you browse manually, first enable “Hidden items” in the View menu.",
+        modal_linux_desc: "In most file managers, press <code>Ctrl + H</code> to show hidden files, or enter <code>~/.codex</code> directly in the location bar.",
+        modal_footer_note: "If the system directory picker makes hidden folders hard to choose, you can use “Fallback Folder Import” on the home screen and drop the whole <code>.codex</code> directory instead.",
+        modal_cancel: "Cancel",
+        modal_continue: "Continue",
         view_all: "Show All",
         view_user_only: "User Only",
         empty_no_sessions_loaded: "No sessions loaded yet.",
@@ -1233,6 +1258,7 @@
         status_scanned_count: "Scanned {count} sessions",
         status_picker_failed: "Directory access failed",
         status_fallback_loaded: "Loaded via fallback folder import",
+        picker_not_supported: "This browser does not support directory access. Please use a Chromium-based browser, or use Fallback Folder Import instead.",
         handoff_intro: "Below is a Codex session handoff package. Please read it fully first, then continue collaborating with me based on this context.",
         handoff_requirements: "Requirements:",
         handoff_req_1: "1. Treat this content as prior conversation history that already happened.",
@@ -1244,7 +1270,11 @@
         handoff_updated: "Last Updated: ",
         handoff_session_id: "Original Session ID: ",
         handoff_full_conversation: "Full Conversation:",
-        handoff_empty_transcript: "No extractable conversation text"
+        handoff_empty_transcript: "No extractable conversation text",
+        copy_failed_manual: "Copy failed. Please copy it manually:",
+        function_call: "[Function Call] ",
+        function_output: "[Function Output]\n",
+        reasoning_placeholder: "This record contains assistant reasoning content. Due to storage format limits, it usually only includes placeholder or encrypted data here."
       }
     };
 
@@ -1339,8 +1369,8 @@
 
       if (event.type === "response_item") {
         if (payload.type === "message" && payload.content) return extractText(payload.content);
-        if (payload.type === "function_call") return "[函数调用] " + (payload.name || "") + "\n" + (payload.arguments || "");
-        if (payload.type === "function_call_output") return "[函数输出]\n" + (payload.output || "");
+        if (payload.type === "function_call") return t("function_call") + (payload.name || "") + "\n" + (payload.arguments || "");
+        if (payload.type === "function_call_output") return t("function_output") + (payload.output || "");
       }
 
       return "";
@@ -1403,7 +1433,7 @@
             kind: "assistant_thought",
             label: t("label_assistant"),
             timestamp: event.timestamp,
-            content: "该条记录包含助手的推理内容，出于存储格式限制，这里通常只有占位信息或加密内容。"
+            content: t("reasoning_placeholder")
           });
         }
       }
@@ -1825,7 +1855,7 @@
       try {
         await navigator.clipboard.writeText(text);
       } catch {
-        window.prompt("复制失败，请手动复制：", text);
+        window.prompt(t("copy_failed_manual"), text);
       }
     }
 
@@ -1848,7 +1878,7 @@
     els.continuePickBtn.addEventListener("click", async () => {
       closeDirGuide();
       if (!window.showDirectoryPicker) {
-        alert("当前浏览器不支持目录授权，请改用 Chromium 浏览器，或使用“目录选择降级”。");
+        alert(t("picker_not_supported"));
         return;
       }
       try {
